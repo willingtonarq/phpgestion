@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora PHP</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; height: 100vh; justify-content: center; align-items: center; background-color: #f0f2f5; }
+        .calculator { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+        .display { width: 100%; height: 40px; text-align: right; margin-bottom: 10px; padding: 5px; font-size: 1.5em; border: 1px solid #ccc; border-radius: 5px; }
+        .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+        button { padding: 15px; font-size: 1.2em; cursor: pointer; border: none; background-color: #0078FF; color: #fff; border-radius: 5px; }
+        button.operator { background-color: #ff9500; }
+        button.equal { grid-column: span 2; background-color: #4CAF50; }
+        button.clear { background-color: #FF3B30; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form method="POST" action="calculadora.php">
+            <input type="text" class="display" name="display" readonly>
+            <div class="buttons">
+                <button type="button" onclick="appendToDisplay('7')">7</button>
+                <button type="button" onclick="appendToDisplay('8')">8</button>
+                <button type="button" onclick="appendToDisplay('9')">9</button>
+                <button type="button" class="operator" onclick="appendToDisplay('+')">+</button>
+
+                <button type="button" onclick="appendToDisplay('4')">4</button>
+                <button type="button" onclick="appendToDisplay('5')">5</button>
+                <button type="button" onclick="appendToDisplay('6')">6</button>
+                <button type="button" class="operator" onclick="appendToDisplay('-')">-</button>
+
+                <button type="button" onclick="appendToDisplay('1')">1</button>
+                <button type="button" onclick="appendToDisplay('2')">2</button>
+                <button type="button" onclick="appendToDisplay('3')">3</button>
+                <button type="button" class="operator" onclick="appendToDisplay('*')">*</button>
+
+                <button type="button" onclick="appendToDisplay('0')">0</button>
+                <button type="button" onclick="appendToDisplay('.')">.</button>
+                <button type="submit" class="equal">=</button>
+                <button type="button" class="operator" onclick="appendToDisplay('/')">/</button>
+
+                <button type="button" class="clear" onclick="clearDisplay()">C</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            const display = document.querySelector(".display");
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            document.querySelector(".display").value = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,10 @@
+/*
+  Funcionalidad de multiplicacion y division desarrollada por:
+  Juan Diego Blandon
+  Juan Estevan Zapata
+  Jeisson Osorio
+*/
+
 function appendToDisplay(value) {
     document.getElementById("display").value += value;
   }
